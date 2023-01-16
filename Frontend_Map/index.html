@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\Java Interaktiv Map\Frontend_Map\CSS\style.css">
+    <title>Map</title>
+</head>
+<body>
+
+    <img src="img/1_EG.png" alt="sitzplan" usemap="#sitzplan">
+    <map name="sitzplan">
+        
+        <!-- Räume sind von links nach recht aufgelistet -->
+        <area target="" alt="1.1" title="1.1" coords="82,579,109,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.2" title="Room_2" coords="111,579,135,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_3" title="Room_3" coords="139,579,163,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_4" title="Room_4" coords="183,579,216,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_5" title="Room_5" coords="238,579,214,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_6" title="Room_6" coords="242,579,284,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_7" title="Room_7" coords="290,579,314,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_8" title="Room_8" coords="318,579,344,621" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="Room_9" title="Room_9" coords="352,579,396,631" shape="rect" onclick="onRoomClick(alt)">
+
+    </map>
+
+    <p id="demo"></p>
+    
+
+    <script>
+
+        const dbParam = JSON.stringify({table:"test", limit:20});
+        const xmlhttp = new XMLHttpRequest();
+
+        function onRoomClick(roomnumber){
+            //alert("Raumnummer: " + roomnumber);
+            var data = getRequest("http://localhost:8081/rwp/number/" + roomnumber);
+            alert("Data: " + data)
+        }
+
+        function getRequest(url){
+            xmlhttp.open("GET", url, false);
+            xmlhttp.send('');
+            console.log(xmlhttp.responseText)
+            return xmlhttp.responseText;
+        }
+
+        function onRoomClickTest(roomnumber){
+            var data = getRequest("http://localhost:8081/rwp/number/" + roomnumber);
+
+            const myObj = JSON.parse(data);
+            console.log(myObj);
+            let text = "<table>";
+            text = "<tr><th>" + myObj[1] + "</th></tr>";
+
+            for (let x in myObj) {
+                text += "<tr><td>" + myObj[x] + "</td></tr>";
+            }
+            text += "</table>";
+            document.getElementById("demo").innerHTML = text;
+        }
+        // Seite zegit "undefined11.1[object Object],[object Object]" an keine ahnung wo das herkommt 
+
+    </script>
+
+</body>
+</html>

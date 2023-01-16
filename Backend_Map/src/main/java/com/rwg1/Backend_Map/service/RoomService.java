@@ -3,6 +3,7 @@ package com.rwg1.Backend_Map.service;
 import com.rwg1.Backend_Map.models.Person;
 import com.rwg1.Backend_Map.models.Room;
 import com.rwg1.Backend_Map.rep.RoomRep;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,9 @@ public class RoomService {
 
     public Optional<Room> getRoomById(Long id){return roomRep.findById(id);}
 
-    public List<Room> getRoomByNumber(String nummer){return roomRep.findByNumber(nummer);}
+    public List<Room> getRoomByNumber(String nummer){
+        return roomRep.findByNumber(nummer);
+    }
 
     public List<Person> getPersonList() {
         return personList;
