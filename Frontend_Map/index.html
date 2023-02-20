@@ -13,22 +13,26 @@
         
         <!-- Räume sind von links nach recht aufgelistet -->
         <area target="" alt="1.1" title="1.1" coords="82,579,109,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.2" title="Room_2" coords="111,579,135,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_3" title="Room_3" coords="139,579,163,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_4" title="Room_4" coords="183,579,216,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_5" title="Room_5" coords="238,579,214,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_6" title="Room_6" coords="242,579,284,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_7" title="Room_7" coords="290,579,314,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_8" title="Room_8" coords="318,579,344,621" shape="rect" onclick="onRoomClick(alt)">
-        <area target="" alt="Room_9" title="Room_9" coords="352,579,396,631" shape="rect" onclick="onRoomClick(alt)">
+        <area target="" alt="1.2" title="Room_2" coords="111,579,135,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.3" title="Room_3" coords="139,579,163,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.4" title="Room_4" coords="183,579,216,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.5" title="Room_5" coords="238,579,214,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.6" title="Room_6" coords="242,579,284,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.7" title="Room_7" coords="290,579,314,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.8" title="Room_8" coords="318,579,344,621" shape="rect" onclick="onRoomClickTest(alt)">
+        <area target="" alt="1.9" title="Room_9" coords="352,579,396,631" shape="rect" onclick="onRoomClickTest(alt)">
 
     </map>
 
     <div>
-        <p id="demo"></p>
+        <p>
+            <table border='1'id="Table_Test">
+                <tr><td>Raum Nr:</td></tr>
+                <tr><td>Personen:</td></tr>
+            </table>
 
+        </p>
 
-        <p id="demo2"></p>
     </div>
 
     <script>
@@ -57,8 +61,8 @@
 
             var text = "<table border='1'>";
 
-            text += "<tr><td>Raum Nr:</td><td>" + myObj["nummer"] + "</td></tr>";
-            //text += "<tr> Personen: " + element["person"] + "</tr>";
+            // text += "<tr><td>Raum Nr:</td><td>" + myObj["nummer"] + "</td></tr>";
+            text += "<tr><td>Raum Nr:</td><td>" + roomnumber + "</td></tr>";
             text += "<tr><td>Personen:</td><td>";
 
             for (var i = 0; i < Object.keys(myObjPersonen).length; i++){
@@ -67,7 +71,7 @@
             text += "</td></tr>"
 
             text += "</table>";
-            document.getElementById("demo").innerHTML = text;
+            document.getElementById("Table_Test").innerHTML = text;
         }
         
 
