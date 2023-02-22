@@ -4,25 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Map</title>
 </head>
 <body>
 
-    <img src="img/1_EG.png" alt="sitzplan" usemap="#sitzplan">
-    <map name="sitzplan">
-        
-        <!-- Räume sind von links nach recht aufgelistet -->
-        <area target="" alt="1.1" title="1.1" coords="82,579,109,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.2" title="Room_2" coords="111,579,135,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.3" title="Room_3" coords="139,579,163,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.4" title="Room_4" coords="183,579,216,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.5" title="Room_5" coords="238,579,214,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.6" title="Room_6" coords="242,579,284,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.7" title="Room_7" coords="290,579,314,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.8" title="Room_8" coords="318,579,344,621" shape="rect" onclick="onRoomClickTest(alt)">
-        <area target="" alt="1.9" title="Room_9" coords="352,579,396,631" shape="rect" onclick="onRoomClickTest(alt)">
+    <div id="EtagenView"></div>
 
-    </map>
+    <div id="EtagenWahl">
+        <p>Etagen:</p>
+        <input type="button" alt="2" id="2.OG" value="2.OG" onclick="chooseFloor(alt)">
+        <input type="button" alt="1" id="OG" value="1.OG" onclick="chooseFloor(alt)">
+        <input type="button" alt="0" id="EG" value="EG" onclick="chooseFloor(alt)">
+    </div>
 
     <div>
         <p>
@@ -74,6 +68,21 @@
             document.getElementById("Table_Test").innerHTML = text;
         }
         
+        $(function(){
+            $("#EtagenView").load("EG.html");
+        });
+
+        function chooseFloor(data){
+            if (data == "2") {
+                $("#EtagenView").load("2.OG.html");
+            }else if (data == "1") {
+                $("#EtagenView").load("1.OG.html");
+            }else if (data == "0") {
+                $("#EtagenView").load("EG.html");
+            }else{
+                $("#EtagenView").load("EG.html");
+            }
+        }
 
 
     </script>
