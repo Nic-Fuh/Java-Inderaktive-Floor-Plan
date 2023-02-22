@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,12 +34,6 @@
         const dbParam = JSON.stringify({table:"test", limit:20});
         const xmlhttp = new XMLHttpRequest();
 
-        function onRoomClick(roomnumber){
-            //alert("Raumnummer: " + roomnumber);
-            var data = getRequest("http://localhost:8081/rwp/number/" + roomnumber);
-            alert("Data: " + data)
-        }
-
         function getRequest(url){
             xmlhttp.open("GET", url, false);
             xmlhttp.send('');
@@ -47,7 +41,7 @@
             return xmlhttp.responseText;
         }
 
-        function onRoomClickTest(roomnumber){
+        function onRoomClick(roomnumber){
             var data = getRequest("http://localhost:8081/rwp/number/" + roomnumber);
 
             var myObj = JSON.parse(data);
