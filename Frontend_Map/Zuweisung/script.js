@@ -87,5 +87,7 @@ function merge(){
         }
         
         alert("Room: " + Room_ID + " with Person: " + personen);
+
+        // JSON body erstellen und zu http://localhost:8081/addzuweisung/ schicken
     }
 }
