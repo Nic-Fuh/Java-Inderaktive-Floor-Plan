@@ -20,4 +20,6 @@ public interface ZuweisungRep extends JpaRepository<Zuweisung, Long> {
             nativeQuery = true)
     List<Zuweisung> findByPersonId(@Param("person") Long personId);
 
+
+    
 }

@@ -21,8 +21,10 @@ public class ZuweisungService {
 
     public List<Zuweisung> getZuweisungByPersonId(Long id){return rep.findByPersonId(id);}
 
-    // Personen finden in einem bestimmten Raum
+    public void createZuweisung(Zuweisung zuweisung){
 
-    // Raum finden wo die bestimmte Person ist
+        rep.save(zuweisung);
+
+    }
 
 }
