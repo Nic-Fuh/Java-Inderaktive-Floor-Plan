@@ -77,16 +77,17 @@ function getRooms(){
 
 function selectPerson(id){
     Person_ID_Array.push(id);
-    document.getElementById("testArray").innerHTML += id + ", ";
+    document.getElementById("PersonArray").innerHTML += id + ", ";
 }
 
 function clearArray(){
     Person_ID_Array = [];
-    document.getElementById("testArray").innerHTML = "";
+    document.getElementById("PersonArray").innerHTML = "";
 }
 
 function selectRoom(id){
     Room_ID = id;
+    document.getElementById("RoomActive").innerHTML = Room_ID;
 }
 
 function merge(){
