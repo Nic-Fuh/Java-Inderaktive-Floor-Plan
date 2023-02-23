@@ -16,6 +16,19 @@ function getRequest(url){
     return xmlhttp.responseText;
 }
 
+function postRequest(url, data){
+    xmlhttp.open("POST", url, false);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    
+    xmlhttp.onreadystatechange = function (){
+        if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+            alert(this.responseText);
+        }
+    }
+
+    xmlhttp.send(data);
+}
+
 function getPersonen(){
     var data = getRequest("http://localhost:8081/personen");
 
@@ -84,10 +97,9 @@ function merge(){
 
         for (var i = 0; i < Person_ID_Array.length; i++){
             personen += Person_ID_Array[i] + ", ";
-        }
-        
-        alert("Room: " + Room_ID + " with Person: " + personen);
 
-        // JSON body erstellen und zu http://localhost:8081/addzuweisung/ schicken
+            var data = JSON.stringify({"id": "", "person_id": Person_ID_Array[i], "room_id": Room_ID});
+            postRequest("http://localhost:8081/addzuweisung/", data);
+        }
     }
 }
