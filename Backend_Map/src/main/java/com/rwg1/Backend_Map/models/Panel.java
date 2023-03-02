@@ -26,6 +26,7 @@ public class Panel {
     private String email;
     private LocalTime az_soll;
     private LocalTime pause_soll;
+    private int anzeige;
 
     public Long getId() {
         return id;
@@ -137,5 +138,11 @@ public class Panel {
 
     public void setPause_soll(LocalTime pause_soll) {
         this.pause_soll = pause_soll;
+    }
+
+    public int getAnzeige(){return anzeige;}
+
+    public void setAnzeige(int anzeige){
+        this.anzeige = anzeige;
     }
 }

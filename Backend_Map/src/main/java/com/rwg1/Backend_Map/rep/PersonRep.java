@@ -11,7 +11,7 @@ import java.util.List;
 public interface PersonRep extends JpaRepository<Panel, Long> {
 
     @Query(
-            value = "SELECT * FROM Person p WHERE p.person = :name",
+            value = "SELECT * FROM Panel p WHERE p.person = :name",
             nativeQuery = true)
     List<Panel> findByName(@Param("name") String name);
 
