@@ -15,7 +15,7 @@ public class Room {
     private Long id;
     private String nummer;
     @Transient
-    private List<Person> personen;
+    private List<Panel> personen;
 
     public Long getId() {
         return id;
@@ -33,11 +33,11 @@ public class Room {
         this.nummer = nummer;
     }
 
-    public List<Person> getPersonen() {
+    public List<Panel> getPersonen() {
         return personen;
     }
 
-    public void setPersonen(List<Person> personen) {
+    public void setPersonen(List<Panel> personen) {
         this.personen = personen;
     }
 }

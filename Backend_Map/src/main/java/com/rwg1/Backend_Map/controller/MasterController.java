@@ -1,6 +1,6 @@
 package com.rwg1.Backend_Map.controller;
 
-import com.rwg1.Backend_Map.models.Person;
+import com.rwg1.Backend_Map.models.Panel;
 import com.rwg1.Backend_Map.models.Room;
 import com.rwg1.Backend_Map.models.Zuweisung;
 import com.rwg1.Backend_Map.service.PersonService;
@@ -68,15 +68,15 @@ public class MasterController {
     //========================Person Mappings===============================
 
     @GetMapping("/personen")
-    public List<Person> getAllPersonen(){return personService.getAllPersonen();}
+    public List<Panel> getAllPersonen(){return personService.getAllPersonen();}
 
     @GetMapping("/person/id/{id}")
-    public Optional<Person> getPersonById(@PathVariable("id") Long id){
+    public Optional<Panel> getPersonById(@PathVariable("id") Long id){
         return personService.getPersonById(id);
     }
 
     @GetMapping("/person/name/{name}")
-    public List<Person> getPersonByName(@PathVariable("name") String name){
+    public List<Panel> getPersonByName(@PathVariable("name") String name){
         return personService.getPersonByName(name);
     }
 
@@ -90,13 +90,13 @@ public class MasterController {
 
     @GetMapping("/rwp/{roomID}") //rwp = Room with Person
     public Room getRWP(@PathVariable("roomID") Long id){
-        List<Person> personenImRaum = new ArrayList<>();
+        List<Panel> personenImRaum = new ArrayList<>();
 
         List<Zuweisung> zuweisungen = zuweisungService.getZuweisungByRoomId(id);
 
         for (Zuweisung z:
              zuweisungen) {
-            Optional<Person> p = personService.getPersonById(z.getPerson_id());
+            Optional<Panel> p = personService.getPersonById(z.getPerson_id());
             try {
                 personenImRaum.add(p.get());
             }catch (Exception e){
@@ -120,13 +120,13 @@ public class MasterController {
             Long roomID = roomService.getRoomByNumber(number).get(0).getId();
 
 
-            List<Person> personenImRaum = new ArrayList<>();
+            List<Panel> personenImRaum = new ArrayList<>();
 
             List<Zuweisung> zuweisungen = zuweisungService.getZuweisungByRoomId(roomID);
 
             for (Zuweisung z:
                 zuweisungen) {
-                Optional<Person> p = personService.getPersonById(z.getPerson_id());
+                Optional<Panel> p = personService.getPersonById(z.getPerson_id());
                 try {
                     personenImRaum.add(p.get());
                 }catch (Exception e){

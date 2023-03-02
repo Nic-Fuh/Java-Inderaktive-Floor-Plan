@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.time.LocalTime;
 
 @Entity
-public class Person {
+public class Panel {
 
     @Id
     private Long id;

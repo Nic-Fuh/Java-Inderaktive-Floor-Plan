@@ -1,6 +1,6 @@
 package com.rwg1.Backend_Map.controller;
 
-import com.rwg1.Backend_Map.models.Person;
+import com.rwg1.Backend_Map.models.Panel;
 import com.rwg1.Backend_Map.rep.PersonRep;
 import com.rwg1.Backend_Map.rep.RoomRep;
 import com.rwg1.Backend_Map.service.PersonService;

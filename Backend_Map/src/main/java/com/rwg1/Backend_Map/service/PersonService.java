@@ -1,6 +1,6 @@
 package com.rwg1.Backend_Map.service;
 
-import com.rwg1.Backend_Map.models.Person;
+import com.rwg1.Backend_Map.models.Panel;
 import com.rwg1.Backend_Map.rep.PersonRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ public class PersonService {
     @Autowired
     public PersonService(PersonRep personRep){this.personRep = personRep;}
 
-    public List<Person> getAllPersonen(){return personRep.findAll();}
+    public List<Panel> getAllPersonen(){return personRep.findAll();}
 
-    public Optional<Person> getPersonById(Long id){
+    public Optional<Panel> getPersonById(Long id){
         return personRep.findById(id);
     }
 
-    public List<Person> getPersonByName(String name){
+    public List<Panel> getPersonByName(String name){
         return personRep.findByName(name);
     }
 

@@ -1,6 +1,6 @@
 package com.rwg1.Backend_Map.service;
 
-import com.rwg1.Backend_Map.models.Person;
+import com.rwg1.Backend_Map.models.Panel;
 import com.rwg1.Backend_Map.models.Room;
 import com.rwg1.Backend_Map.rep.RoomRep;
 
@@ -15,7 +15,7 @@ public class RoomService {
 
     private final RoomRep roomRep;
 
-    private List<Person> personList;
+    private List<Panel> personList;
 
     @Autowired
     public RoomService(RoomRep roomRep){this.roomRep = roomRep;}
@@ -28,11 +28,11 @@ public class RoomService {
         return roomRep.findByNumber(nummer);
     }
 
-    public List<Person> getPersonList() {
+    public List<Panel> getPersonList() {
         return personList;
     }
 
-    public void setPersonList(List<Person> personList) {
+    public void setPersonList(List<Panel> personList) {
         this.personList = personList;
     }
 }
