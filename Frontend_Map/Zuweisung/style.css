@@ -1,11 +1,41 @@
 html{
+
     background-color: black;
-    color: grey;
+    color: white;
+
+}
+
+.btn{
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.module-1{
+    margin: 1em;
+    text-align: center;
+}
+
+.flex, .flex-stack{
+    display: flex;
+}
+
+.felx-stack{
+    flex-direction: column;
+}
+
+.container{
+    margin: auto;
+    width: 75%;
+    border: 3px solid white;
+    padding: 10px;
+}
+.container > div{
+    flex: 1;
 }
 
 .Tabel_Size{
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 400px;
+    max-height: 500px;
     overflow-y: auto;
 }
 

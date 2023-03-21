@@ -10,32 +10,51 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Personen</h3>
-    <div class="Tabel_Size">
-        <table id="person_table">
-            <tr>
-                <th>id</th>
-                <th>Gender</th>
-                <th>Person</th>
-                <th>Vorname</th>
-            </tr>
-        </table>
-    </div>
-    <p id="PersonArray"></p>
-    <input type="button" value="Clear list" onclick="clearArray()">
+    <div class="container flex">
+        <div>
+            <h3>Personen</h3>
+            <div class="Tabel_Size">
+                <table id="person_table">
+                    <tr>
+                        <th>id</th>
+                        <th>Gender</th>
+                        <th>Person</th>
+                        <th>Vorname</th>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
 
-    <h3>Räume</h3>
-    <div class="Tabel_Size">
-        <table id="raum_table">
-            <tr>
-                <th>id</th>
-                <th>Nummer</th>
-            </tr>
-        </table>
-    </div>
-    <p id="RoomActive"></p>
+        <div class="flex-stack">
+            <div class="module-1">
+                <p id="PersonArray">Person IDs: </p>
+                <p id="RoomActive">Raum ID: </p>
 
-    <input type="button" value="Merge" onclick="merge()">
+                <p>
+                    <input class="btn" type="button" value="Personen abwählen" onclick="clearArray()">
+                    <input class="btn" type="button" value="Raum abwählen" onclick="roomClear()">
+                </p>
+                
+                <input class="btn" type="button" value="Zuweisen" onclick="merge()">
+            </div>
+        </div>
+
+
+        <div>
+            <h3>Räume</h3>
+            <div class="Tabel_Size">
+                <table id="raum_table">
+                    <tr>
+                        <th>id</th>
+                        <th>Nummer</th>
+                    </tr>
+                </table>
+            </div>
+        </div>  
+    </div>
+    
+
 
 </body>
 </html>

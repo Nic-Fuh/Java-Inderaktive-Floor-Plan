@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="script/script.js"></script>
     <title>Map</title>
 </head>
 <body>
 
-    <div id="EtagenView"></div>
+    <div class="imageBorder" id="EtagenView"></div>
 
     <div id="EtagenWahl">
-        <p>Etagen:</p>
-        <input type="button" alt="2" id="2.OG" value="2.OG" onclick="chooseFloor(alt)">
-        <input type="button" alt="1" id="OG" value="1.OG" onclick="chooseFloor(alt)">
-        <input type="button" alt="0" id="EG" value="EG" onclick="chooseFloor(alt)">
+        <p id="EtagenText">EG</p>
+        <input class="btn" type="button" alt="2" id="2.OG" value="2.OG" onclick="chooseFloor(alt)">
+        <input class="btn" type="button" alt="1" id="OG" value="1.OG" onclick="chooseFloor(alt)">
+        <input class="btn" type="button" alt="0" id="EG" value="EG" onclick="chooseFloor(alt)">
     </div>
 
     <div>
         <p>
-            <table border='1'id="Table_Test">
+            <table id="Table_Test">
                 <tr><td>Raum Nr:</td></tr>
                 <tr><td>Personen:</td></tr>
             </table>
@@ -28,58 +30,6 @@
         </p>
 
     </div>
-
-    <script>
-
-        const dbParam = JSON.stringify({table:"test", limit:20});
-        const xmlhttp = new XMLHttpRequest();
-
-        function getRequest(url){
-            xmlhttp.open("GET", url, false);
-            xmlhttp.send('');
-            console.log(xmlhttp.responseText)
-            return xmlhttp.responseText;
-        }
-
-        function onRoomClick(roomnumber){
-            var data = getRequest("http://localhost:8081/rwp/number/" + roomnumber);
-
-            var myObj = JSON.parse(data);
-            var myObjPersonen = myObj["personen"];
-
-            var text = "<table border='1'>";
-
-            // text += "<tr><td>Raum Nr:</td><td>" + myObj["nummer"] + "</td></tr>";
-            text += "<tr><td>Raum Nr:</td><td>" + roomnumber + "</td></tr>";
-            text += "<tr><td>Personen:</td><td>";
-
-            for (var i = 0; i < Object.keys(myObjPersonen).length; i++){
-                text += "" + myObjPersonen[i]["person"] + ", " + myObjPersonen[i]["vorname"] + " | ";
-            }
-            text += "</td></tr>"
-
-            text += "</table>";
-            document.getElementById("Table_Test").innerHTML = text;
-        }
-        
-        $(function(){
-            $("#EtagenView").load("EG.html");
-        });
-
-        function chooseFloor(data){
-            if (data == "2") {
-                $("#EtagenView").load("2.OG.html");
-            }else if (data == "1") {
-                $("#EtagenView").load("1.OG.html");
-            }else if (data == "0") {
-                $("#EtagenView").load("EG.html");
-            }else{
-                $("#EtagenView").load("EG.html");
-            }
-        }
-
-
-    </script>
 
 </body>
 </html>

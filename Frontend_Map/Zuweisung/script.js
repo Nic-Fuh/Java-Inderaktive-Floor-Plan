@@ -12,7 +12,6 @@ window.onload = function (){
 function getRequest(url){
     xmlhttp.open("GET", url, false);
     xmlhttp.send('');
-    //console.log(xmlhttp.responseText);
     return xmlhttp.responseText;
 }
 
@@ -22,7 +21,7 @@ function postRequest(url, data){
     
     xmlhttp.onreadystatechange = function (){
         if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
-            alert(this.responseText);
+            console.log("Erfolgreich");
         }
     }
 
@@ -50,7 +49,6 @@ function getPersonen(){
 
         document.getElementById("person_table").innerHTML += tablerow;
         
-        console.log(tablerow);
     }
 }
 
@@ -71,28 +69,34 @@ function getRooms(){
 
         document.getElementById("raum_table").innerHTML += tablerow;
         
-        console.log(tablerow);
     }
 }
 
 function selectPerson(id){
-    Person_ID_Array.push(id);
-    document.getElementById("PersonArray").innerHTML += id + ", ";
+
+    if (!Person_ID_Array.includes(id)){
+        Person_ID_Array.push(id);
+        document.getElementById("PersonArray").innerHTML += id + ", ";
+    }
 }
 
 function clearArray(){
     Person_ID_Array = [];
-    document.getElementById("PersonArray").innerHTML = "";
+    document.getElementById("PersonArray").innerHTML = "Person IDs: ";
+}
+function roomClear(){
+    Room_ID = null;
+    document.getElementById("RoomActive").innerHTML = "Raum ID: ";
 }
 
 function selectRoom(id){
     Room_ID = id;
-    document.getElementById("RoomActive").innerHTML = Room_ID;
+    document.getElementById("RoomActive").innerHTML = "Raum ID: " + Room_ID;
 }
 
 function merge(){
 
-    if (Room_ID > 0 && Person_ID_Array.length > 0){
+    if (Room_ID != null && Person_ID_Array.length > 0){
 
         var personen = "";
 
@@ -102,5 +106,11 @@ function merge(){
             var data = JSON.stringify({"id": "", "person_id": Person_ID_Array[i], "room_id": Room_ID});
             postRequest("http://localhost:8081/addzuweisung/", data);
         }
+
+        Person_ID_Array = [];
+        Room_ID = null;
+
+        document.getElementById("RoomActive").innerHTML = "Raum ID: ";
+        document.getElementById("PersonArray").innerHTML = "Person IDs: ";
     }
 }
