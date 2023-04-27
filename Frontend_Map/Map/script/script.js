@@ -1,6 +1,8 @@
 const dbParam = JSON.stringify({table:"test", limit:20});
 const xmlhttp = new XMLHttpRequest();
 
+Event.preventDefault;
+
 function getRequest(url){
     xmlhttp.open("GET", url, false);
     xmlhttp.send('');
@@ -19,7 +21,7 @@ function onRoomClick(roomnumber){
     for (var i = 0; i < Object.keys(myObjPersonen).length; i++){
         text += "" + myObjPersonen[i]["person"] + ", " + myObjPersonen[i]["vorname"] + " | ";
     }
-    text += "</td></tr>"
+    text += "</td></tr>";
     text += "</table>";
     document.getElementById("Table_Test").innerHTML = text;
 }
